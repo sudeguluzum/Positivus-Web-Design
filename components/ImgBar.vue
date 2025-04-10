@@ -5,7 +5,7 @@
     </div>
 
     <div
-      class="absolute inset-0 bg-gradient-to-b from-[#070B14] via-[#070B14]/80 to-transparent z-10"
+      class="absolute inset-0 top-0 left-0 right-0 h-65 bg-gradient-to-b from-[#070B14] via-[#070B14]/80 to-transparent z-10"
     ></div>
 
     <div class="relative z-20 py-10">

@@ -1,16 +1,17 @@
 <template>
   <div
-    class="relative bg-[#070B14]/80 z-10 rounded-3xl w-[52%] mx-auto h-[320px] flex flex-col justify-center items-center p-6"
-  >
-    <div class="text-white text-4xl font-bold mb-4">
-      <h1>Trend Oyunlar</h1>
+    class="relative bg-[#070B14]/80 z-10 rounded-3xl  mx-auto h-[320px] flex-center flex-col p-4 sm:p-6 md:p-8 lg:p-10 max-w-5xl"
+  >     
+
+    <div class="text-white font-bold mb-6 text-center text-2xl xs:text-3xl sm:text-4xl md:text-4xl">
+      <h2>Trend Oyunlar</h2>
     </div>
     <div class="w-full max-w-6xl">
       <div class="relative w-full">
 
         <div
           ref="scrollContainer"
-          class="mx-20 flex overflow-x-auto scroll-smooth scrollbar-hide px-10 space-x-4"
+          class="mx-20 flex overflow-x-auto scroll-smooth scrollbar-hide px-3 space-x-4"
           style="scroll-snap-type: x mandatory"
         >
 

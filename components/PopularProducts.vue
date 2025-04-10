@@ -1,30 +1,29 @@
 <template>
-  <div class="bg-gray-700 relative h-75 mt-8">
-    <div
-      class="absolute text-white text-4xl font-bold mb-4 text-center left-1/2 transform -translate-x-1/2"
+  <div class="py-10 bg-gray-700 my-10">
+    <h2
+      class="text-white font-bold  text-center text-2xl xs:text-3xl sm:text-4xl md:text-4xl"
     >
-      <h1>Popüler Ürünler</h1>
+      Popüler Ürünler
+    </h2>
+
+    <div class="flex-center flex-wrap max-md:gap-y-5 mt-5">
+      <PopularProductsComp
+        v-for="(i, index) in products"
+        :image="i.image"
+        :title="i.subtitle"
+      />
     </div>
-
-    <div
-      class="h-50 w-[52%] absolute left-1/2 transform -translate-x-1/2 top-10 flex-center flex-wrap"
-    >
-    <PopularProductsComp v-for="(i,index) in products" :image="i.image" :subtitle="i.subtitle" />
-
-
-</div>
   </div>
 </template>
 <script setup>
 const products = [
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-  { image: "popular-product1.png",subtitle:"11950 UC GLOBAL"},
-
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
+  { image: "popular-product1.png", subtitle: "11950 UC GLOBAL" },
 ];
 </script>

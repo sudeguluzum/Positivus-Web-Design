@@ -1,13 +1,23 @@
 <template>
-  <div class="bg-[#070B14] h-20 flex-center space-x-3">
-    <div class="max-w-[1200px] w-full flex justify-between items-center gap-5">
+  <div class="bg-[#070B14] h-20 flex items-center">
+    <div class="max-w-[1200px] w-full px-4 flex justify-between items-center gap-5 mx-auto">
       <NuxtImg src="Logo.png" class="h-14" />
 
-      <Searchbar />
+      <div class="hidden md:block w-full max-w-md">
+        <Searchbar />
+      </div>
 
-      <div class="relative w-full ">
-        <ul class="flex space-x-5 flex-center">
-          <li class="flex-1 min-w-[auto]">
+      <!-- Hamburger Menü (mobil) -->
+      <div class="md:hidden">
+        <button @click="menuOpen = !menuOpen">
+          <Icon name="mdi:menu" class="text-white w-6 h-6" />
+        </button>
+      </div>
+
+      <!-- Menü (masaüstü) -->
+      <div class="hidden md:flex  relative w-full justify-strat">
+        <ul class="flex space-x-3 items-center">
+          <li>
             <NuxtLink
               to="/fav"
               class="text-white flex items-center justify-center"
@@ -16,42 +26,48 @@
               Favorilerim
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink
+              to="/fav"
+              class="text-white flex items-center justify-center"
+            >
+              <Icon name="openmoji:flag-turkey" class="text-2xl mr-1" />
+              Türkçe
+              <Icon name="mingcute:down-line" class="w-5 h-5 text-white ml-1" />
+            </NuxtLink>
+          </li>
           <li
-            class="flex-1 min-w-[95] h-7 px-2 flex-center text-white rounded-full bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E]"
+            class="h-7 px-3 flex items-center text-white rounded-full bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E]"
           >
             <NuxtLink to="/" class="flex items-center justify-center">
               acililahmacun
             </NuxtLink>
           </li>
-          <li class="flex-1 min-w-[95px] h-7 px-2 text-green-700 rounded-full bg-white">
-            <NuxtLink to="/" class="flex items-center justify-center">
-              Satıcı Ol
-            </NuxtLink>
-          </li>
-          <li class="flex-1 min-w-[auto]">
-            <NuxtLink
-              to="/fav"
-              class="text-white flex items-center justify-center"
-            >
-              <Icon
-                name="openmoji:flag-turkey"
-                class="h-13"
-              />
-              Türkçe
-              <Icon name="mingcute:down-line" class="w-5 h-5 text-white" />
-            </NuxtLink>
-          </li>
-          <li class="flex-1 min-w-[100px]">
-            <NuxtLink
-              to="/contact"
-              class="text-white flex items-center justify-center font-bold"
-            >
-              Bakiye Yükle
-            </NuxtLink>
-          </li>
         </ul>
       </div>
     </div>
+
+    <!-- Mobil Menü Açılır -->
+    <div
+      v-if="menuOpen"
+      class="md:hidden absolute top-20 left-0 w-full bg-[#070B14] z-50 p-4"
+    >
+      <ul class="space-y-4 text-white text-center">
+        <li>
+          <NuxtLink to="/fav" class="block">Favorilerim</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/fav" class="block">Türkçe</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/" class="block">acililahmacun</NuxtLink>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
-<script setup></script>
+
+<script setup>
+import { ref } from 'vue'
+const menuOpen = ref(false)
+</script>

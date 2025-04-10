@@ -1,16 +1,16 @@
 <template>
   <Header />
-  <ImgBar />
+  <!-- <ImgBar /> -->
   <Games />
   <TrendGames />
   <PopularProducts />
   <Text />
-  <Infobar />
+  <!-- <Infobar />
   <EBulletin />
+  <PaymentMethods />
+  <Footer />
+  <FooterLinear />
+  <BottomFooter /> -->
 </template>
 
-<script>
-import EBulletin from '~/components/EBulletin.vue';
-
-
-</script>
+<script></script>

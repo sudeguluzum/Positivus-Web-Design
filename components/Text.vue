@@ -1,10 +1,10 @@
 <template>
  
-    <div class="w-[52%] relative h-auto mx-auto ">
+    <div class="h-auto mx-auto max-w-5xl ">
       <div
         class="h-17 rounded-t-4xl bg-gradient-to-r from-[#1b9a88]/70 to-[#1C3E7E]/70 text-2xl backdrop-blur-sm text-white font-bold text-center flex-center"
       >
-        <h1>Türkiye'nin En Büyük Oyuncu Pazarı</h1>
+        <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-4xl">Türkiye'nin En Büyük Oyuncu Pazarı</h2>
       </div>
       <div class="bg-white px-10 py-2 leading-none text-sm rounded-b-4xl">
         <p>

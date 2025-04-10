@@ -1,9 +1,9 @@
 <template>
-    <div class="h-60 flex justify-center items-center gap-2">
+    <div class="h-60  flex-center flex-wrap gap-2">
       <div
         v-for="(i, index) in images"
         :key="index"
-        class="rounded-full h-16 w-16 flex justify-center items-center"
+        class="rounded-full h-16 w-16 flex-center"
       >
         <NuxtImg :src="i.image" class="h-16 w-16 " />
       </div>
