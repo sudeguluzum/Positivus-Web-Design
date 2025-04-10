@@ -1,16 +1,16 @@
 <template>
   <Header />
-  <!-- <ImgBar /> -->
+ <ImgBar />  
   <Games />
   <TrendGames />
   <PopularProducts />
-  <Text />
-  <!-- <Infobar />
+  <Text /> 
+   <Infobar /> 
   <EBulletin />
   <PaymentMethods />
   <Footer />
   <FooterLinear />
-  <BottomFooter /> -->
+  <BottomFooter />  
 </template>
 
 <script></script>

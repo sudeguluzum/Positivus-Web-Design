@@ -7,7 +7,7 @@
     />
 
     <button
-      class="absolute right-2 top-1 transform w-9 h-9 flex-center rounded-full bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E] text-white"
+      class="absolute right-2 top-1.5 transform w-9 h-9 flex-center rounded-full bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E] text-white"
     >
       <Icon name="mingcute:right-line" class="text-sm" />
     </button>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-20 p-12 bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E] w-full flex-center gap-14"
+    class="mt-20 p-12 bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E] w-full flex-center gap-14 flex-wrap"
   >
     <div
       class="flex-center gap-1.5 text-center text-white"
