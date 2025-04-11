@@ -7,7 +7,7 @@
       v-for="(i, j) in logo"
       :key="j"
     >
-      <NuxtImg :src="i.image" class="h-26" />
+      <NuxtImg :src="i.image" class="w-24" />
       <div>
         <p class="my-2 font-semibold">{{ i.title }}</p>
         <p class="max-w-48 text-balance text-sm">
