@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-[#070B14] h-20 flex items-center">
-    <div class="max-w-[1200px] w-full px-4 flex justify-between items-center gap-5 mx-auto">
+  <div class="bg-[#070B14] h-20 flex-center bg-red-300">
+    <div class="max-w-[1200px] w-full px-4 flex-center gap-5 mx-auto">
       <NuxtImg src="Logo.png" class="h-14" />
 
       <div class="hidden md:block w-full max-w-md">
@@ -15,22 +15,19 @@
       </div>
 
       <!-- Menü (masaüstü) -->
-      <div class="hidden md:flex  relative w-full justify-strat">
-        <ul class="flex space-x-3 items-center">
+      <div class="hidden md:flex relative w-full">
+        <ul class="flex-center space-x-3">
           <li>
-            <NuxtLink
-              to="/fav"
-              class="text-white flex items-center justify-center"
-            >
-              <Icon name="mdi:heart-outline" class="w-5 h-5 text-green-700 mr-1" />
+            <NuxtLink to="/fav" class="text-white flex-center">
+              <Icon
+                name="mdi:heart-outline"
+                class="w-5 h-5 text-green-700 mr-1"
+              />
               Favorilerim
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              to="/fav"
-              class="text-white flex items-center justify-center"
-            >
+            <NuxtLink to="/fav" class="text-white flex-center">
               <Icon name="openmoji:flag-turkey" class="text-2xl mr-1" />
               Türkçe
               <Icon name="mingcute:down-line" class="w-5 h-5 text-white ml-1" />
@@ -52,7 +49,7 @@
       v-if="menuOpen"
       class="md:hidden absolute top-20 left-0 w-full bg-[#070B14] z-50 p-4"
     >
-      <ul class="space-y-4 text-white text-center">
+      <ul class="space-y-3 text-white text-center">
         <li>
           <NuxtLink to="/fav" class="block">Favorilerim</NuxtLink>
         </li>
@@ -68,6 +65,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const menuOpen = ref(false)
+import { ref } from "vue";
+const menuOpen = ref(false);
 </script>
