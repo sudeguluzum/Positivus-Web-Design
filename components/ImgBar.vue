@@ -17,7 +17,7 @@
           class="w-full md:max-w-4xl flex-center"
           :breakpoints="{
             1280: { itemsToShow: 7 },
-            1024: { itemsToShow: 6 },
+            1024: { itemsToShow: 7 },
             768: { itemsToShow: 5 },
             640: { itemsToShow: 4 },
             480: { itemsToShow: 3 },

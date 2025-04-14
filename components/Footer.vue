@@ -1,7 +1,7 @@
 <template>
   <footer class="py-10 px-6 text-sm text-gray-700 leading-none bg-white">
     <div
-      class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-24"
+      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5  gap-10"
     >
       <div v-for="(column, index) in footerColumns" :key="index">
         <h3 class="text-[#1b9a88] font-semibold mb-2">{{ column.title }}</h3>
@@ -25,7 +25,7 @@
         </h3>
         <ul class="space-y-1 mb-6">
           <li>
-            <NuxtLink to="/contact"> Anında Canlı Destek </NuxtLink>
+            <NuxtLink to="/"> Anında Canlı Destek </NuxtLink>
           </li>
           <li>
             <a href="mailto:destek@epinpay.com"> destek@epinpay.com </a>
@@ -59,57 +59,57 @@ const footerColumns = [
   {
     title: "Egin Pay",
     items: [
-      { text: "Hakkımızda", link: "/about" },
-      { text: "Kariyer", link: "/careers" },
-      { text: "Kurumsal", link: "/corporate" },
-      { text: "Kurumsal Kimlik", link: "/branding" },
-      { text: "Favorilerim", link: "/favorites" },
-      { text: "Haberler", link: "/news" },
-      { text: "İletişim", link: "/contact" },
+      { text: "Hakkımızda", link: "/" },
+      { text: "Kariyer", link: "/" },
+      { text: "Kurumsal", link: "/" },
+      { text: "Kurumsal Kimlik", link: "/" },
+      { text: "Favorilerim", link: "/" },
+      { text: "Haberler", link: "/" },
+      { text: "İletişim", link: "/" },
     ],
   },
   {
     title: "Kullanıcı",
     items: [
-      { text: "Kayıt Ol", link: "/register" },
-      { text: "Şifremi Unuttum", link: "/forgot-password" },
-      { text: "Mağaza", link: "/store" },
-      { text: "Yayıncı Başvurusu", link: "/publisher-application" },
-      { text: "Ödeme Yöntemleri", link: "/payment-methods" },
-      { text: "Kullanıcı Sözleşmesi", link: "/terms" },
-      { text: "KVKK", link: "/kvkk" },
-      { text: "Çerez Politikası", link: "/cookie-policy" },
-      { text: "Gizlilik Sözleşmesi", link: "/privacy" },
-      { text: "Rıza Metni", link: "/consent" },
+      { text: "Kayıt Ol", link: "/" },
+      { text: "Şifremi Unuttum", link: "/" },
+      { text: "Mağaza", link: "/" },
+      { text: "Yayıncı Başvurusu", link: "/" },
+      { text: "Ödeme Yöntemleri", link: "/" },
+      { text: "Kullanıcı Sözleşmesi", link: "/" },
+      { text: "KVKK", link: "/" },
+      { text: "Çerez Politikası", link: "/" },
+      { text: "Gizlilik Sözleşmesi", link: "/" },
+      { text: "Rıza Metni", link: "/" },
     ],
   },
   {
     title: "Oyuncu Pazarı",
     items: [
-      { text: "PUBG Mobile", link: "/games/pubg-mobile" },
-      { text: "PUBG Mobile New State", link: "/games/pubg-new-state" },
-      { text: "Metin 2", link: "/games/metin2" },
-      { text: "Knight Online", link: "/games/knight-online" },
-      { text: "CS:GO", link: "/games/csgo" },
-      { text: "Steam", link: "/games/steam" },
-      { text: "Point Blank", link: "/games/point-blank" },
-      { text: "Minecraft", link: "/games/minecraft" },
-      { text: "İlan Rütbe Sistemi", link: "/ranking-system" },
+      { text: "PUBG Mobile", link: "/" },
+      { text: "PUBG Mobile New State", link: "/" },
+      { text: "Metin 2", link: "/" },
+      { text: "Knight Online", link: "/" },
+      { text: "CS:GO", link: "/" },
+      { text: "Steam", link: "/" },
+      { text: "Point Blank", link: "/" },
+      { text: "Minecraft", link: "/" },
+      { text: "İlan Rütbe Sistemi", link: "" },
     ],
   },
   {
     title: "Popüler Sayfalar",
     items: [
-      { text: "Metin2", link: "/popular/metin2" },
-      { text: "PUBG Mobile", link: "/popular/pubg-mobile" },
-      { text: "PUBG Mobile Lite", link: "/popular/pubg-mobile-lite" },
-      { text: "Valorant", link: "/popular/valorant" },
-      { text: "League Of Legends", link: "/popular/lol" },
-      { text: "Steam", link: "/popular/steam" },
-      { text: "Cabal Online", link: "/popular/cabal" },
-      { text: "Mobile Legends", link: "/popular/mobile-legends" },
-      { text: "Zula", link: "/popular/zula" },
-      { text: "Knight Online", link: "/popular/knight-online" },
+      { text: "Metin2", link: "/" },
+      { text: "PUBG Mobile", link: "/" },
+      { text: "PUBG Mobile Lite", link: "/" },
+      { text: "Valorant", link: "/" },
+      { text: "League Of Legends", link: "/" },
+      { text: "Steam", link: "/" },
+      { text: "Cabal Online", link: "/" },
+      { text: "Mobile Legends", link: "/" },
+      { text: "Zula", link: "/" },
+      { text: "Knight Online", link: "/" },
     ],
   },
 ];

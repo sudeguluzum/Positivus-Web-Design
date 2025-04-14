@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative bg-[#070B14]/80 z-10 rounded-3xl mx-auto h-[320px] flex-center flex-col p-4 sm:p-6 md:p-8 lg:p-10 max-w-5xl"
+    class="relative bg-gradient-to-r from-[#070B14]/45 to-[#06152e]/80 z-10 rounded-3xl mx-auto h-[320px] flex-center flex-col p-4 sm:p-6 md:p-8 lg:p-10 max-w-5xl"
   >
     <div
       class="text-white font-bold mb-6 text-center text-2xl xs:text-3xl sm:text-4xl md:text-4xl"
