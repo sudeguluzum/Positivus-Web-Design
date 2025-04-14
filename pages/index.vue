@@ -4,8 +4,8 @@
     <ImgBar />
     <Games />
     <TrendGames />
-    <NewProducts />
-    <TrendGift/>
+    <!-- <NewProducts /> -->
+    <TrendGift />
     <Text />
     <Infobar />
   </div>

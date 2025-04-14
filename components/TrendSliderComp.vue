@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="bg-pink-300 h-60 mt-8 md:max-w-5xl sm:max-w-3xl">
     <ClientOnly>
       <Carousel :items-to-show="5" class="mx-10">
@@ -11,9 +11,9 @@
       </Carousel>
     </ClientOnly>
   </div>
-</template>
+</template> -->
 
-<script setup>
+<!-- <script setup>
   const images = [
     { image: "trend_oyun1.png", title: "Free Fire" },
     { image: "trend_oyun2.png", title: "Playstation Gift Card" },
@@ -26,4 +26,34 @@
     { image: "trend_oyun9.png", title: "Oyun 9" },
     { image: "trend_oyun10.png", title: "Oyun 10" },
   ];
+</script> -->
+
+<template>
+  <Carousel :items-to-show="5" :wrap-around="true" class="px-4">
+    <Slide v-for="(item, index) in images" :key="index">
+      <div
+        class="text-center text-white text-2xl xs:text-3xl sm:text-4xl md:text-4xl p-3 w-55 sm:w-55 mx-auto"
+      >
+        <img
+          :src="`/trendGames/${item.image}`"
+          :alt="item.title"
+          class="mx-auto mb-2 rounded-lg w-full h-[180px] object-contain"
+        />
+        <p class="text-xs sm:text-sm font-medium">{{ item.title }}</p>
+      </div>
+    </Slide>
+    <template #addons>
+      <Navigation />
+    </template>
+  </Carousel>
+</template>
+
+<script setup>
+const props = defineProps(["images"]);
 </script>
+
+<!-- <style scoped>
+.carousel__slide {
+  padding: 0.5rem;
+}
+</style> -->
