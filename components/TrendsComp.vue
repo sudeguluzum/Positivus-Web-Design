@@ -1,7 +1,6 @@
 <template>
   <div
     class="w-[140px] h-[220px] flex-shrink-0 flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
-    style="scroll-snap-align: start"
   >
     <NuxtImg
       :src="image"

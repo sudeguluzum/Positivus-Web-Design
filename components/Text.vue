@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto mx-auto max-w-5xl mt-15">
+  <div class="h-auto mx-auto max-w-5xl mt-15 pb-20">
     <div
       class="h-17 rounded-t-4xl bg-gradient-to-r from-[#1b9a88]/70 to-[#1C3E7E]/70 text-2xl backdrop-blur-sm text-white font-bold text-center flex-center"
     >

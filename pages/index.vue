@@ -4,17 +4,12 @@
     <ImgBar />
     <Games />
     <TrendGames />
-    <!-- <NewProducts /> -->
+    <NewProducts /> 
     <TrendGift />
-    <Text />
-    <Infobar />
+    <TrendPayment/>
+    <Text />  
   </div>
-
   <div class="bg-[url(/bg-img/WebBG.png)]">
-    <EBulletin />
-    <PaymentMethods />
     <Footer />
-    <FooterLinear />
-    <BottomFooter />
   </div>
 </template>

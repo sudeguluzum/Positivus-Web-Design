@@ -1,7 +1,23 @@
 <template>
-  <footer class="py-10 px-6 text-sm text-gray-700 leading-none bg-white">
+  <div class="bg-[#252627] bg-[url(/bg-img/WebBG.png)]">
+    <Infobar />
+  </div>
+  <EBulletin />
+
+  <footer class="py-10 px-6 text-sm text-gray-700 leading-none">
+    <div class="max-w-7xl mx-auto h-20 flex items-center gap-2">
+      <p class="text-sm">Payment methods:</p>
+      <div
+        v-for="(i, index) in images"
+        :key="index"
+        class="flex justify-center items-center"
+      >
+        <NuxtImg :src="i.image" class="h-6" />
+      </div>
+    </div>
+
     <div
-      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5  gap-10"
+      class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10"
     >
       <div v-for="(column, index) in footerColumns" :key="index">
         <h3 class="text-[#1b9a88] font-semibold mb-2">{{ column.title }}</h3>
@@ -51,13 +67,31 @@
         </div>
       </div>
     </div>
+    
   </footer>
+  <div class="w-full h-0.5 bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E]"></div>
+  <div class="py-6 text-center text-sm sm:text-base">
+    <div class="flex-center flex-col space-y-2 text-gray-700">
+      <NuxtImg src="footer-logo.svg" class="h-6 sm:h-8" />
+      <p class="font-semibold text-black">MEGATRON TECHNOLOGY LTD.</p>
+
+      <p class="text-black">
+        Yardım Merkezi: support@epinpay.com 10:00 - 17:00
+      </p>
+    </div>
+  </div>
 </template>
 
 <script setup>
+const images = [
+  { image: "payment1.png" },
+  { image: "payment2.png" },
+  { image: "payment3.png" },
+  { image: "payment4.svg" },
+];
 const footerColumns = [
   {
-    title: "Egin Pay",
+    title: "Epin Pay",
     items: [
       { text: "Hakkımızda", link: "/" },
       { text: "Kariyer", link: "/" },

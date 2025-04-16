@@ -1,20 +1,14 @@
 <template>
   <div
-    class="mt-20 p-12 bg-gradient-to-r from-[#1b9a88]/70 to-[#1C3E7E]/70 w-full flex-center gap-14 flex-wrap"
+    class=" p-12 bg-gradient-to-r from-[#1b9a88]/70 to-[#1C3E7E]/70 w-full flex-center gap-14 flex-wrap"
   >
-    <div
-      class="flex-center gap-1.5 text-center text-white"
+    <InfoBarComp
       v-for="(i, j) in logo"
       :key="j"
-    >
-      <NuxtImg :src="i.image" class="w-24" />
-      <div>
-        <p class="my-2 font-semibold">{{ i.title }}</p>
-        <p class="max-w-48 text-balance text-sm">
-          {{ i.info }}
-        </p>
-      </div>
-    </div>
+      :image="i.image"
+      :title="i.title"
+      :info="i.info"
+    />
   </div>
 </template>
 

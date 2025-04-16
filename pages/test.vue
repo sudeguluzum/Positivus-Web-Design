@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div
+  >
     <div class="relative" ref="target">
       <button class="px-2 py-1 rounded-lg border" @click="show = !show">
         Acılı Lahmacun
