@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative mt-26">
     <div class="relative overflow-hidden h-[600px]">
       <NuxtImg
         src="ImgBarSlider/Artboard1.png"

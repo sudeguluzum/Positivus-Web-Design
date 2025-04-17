@@ -1,15 +1,22 @@
 <template>
   <div class="flex items-center gap-3">
-    <!-- Mobil hamburger menü -->
-    <div class="md:hidden">
+    <!-- Mobil search ve hamburger menü -->
+    <div class="md:hidden flex flex-wrap gap-2">
+      <button
+        ref="searchButton"
+        @click.stop="toggleSearch"
+        class="w-9 h-9 mb-1.5 flex-center text-white"
+      >
+        <Icon name="material-symbols:search" class="text-xl" />
+      </button>
       <button @click="menuOpen = !menuOpen">
-        <Icon name="mdi:menu" class="text-white w-6 h-6" />
+        <Icon name="mdi:menu" class="text-white text-2xl" />
       </button>
     </div>
 
     <!-- Masaüstü menü -->
     <div class="hidden md:flex">
-      <ul class="flex items-center space-x-3">
+    <ul class="flex items-center space-x-3">
         <li>
           <NuxtLink to="/" class="text-white flex items-center">
             <Icon
@@ -39,50 +46,30 @@
           </NuxtLink>
           <div
             v-if="show"
-            class="absolute top-full right-0 w-80 z-30 bg-white text-black text-sm rounded-b-3xl mt-2"
+            class="absolute top-full right-0 w-80 z-60 bg-white/60 backdrop-blur-md text-black text-sm rounded-b-3xl mt-2"
           >
-            <div
+         
+            <HeaderDropDownMenuComp
+            class="border-t border-gray-300 py-4"
               v-for="(i, index) in menu"
               :key="index"
-              class="border-t border-gray-300 py-4"
-            >
-              <NuxtLink :to="i.url">
-                <div class="flex items-center justify-between px-4">
-                  <div class="flex flex-col">
-                    <span
-                      class="text-sm"
-                      :class="{ 'font-bold': i.id === 1 }"
-                      >{{ i.name }}</span
-                    >
-
-                    <span
-                      v-if="i.id === 1"
-                      class="text-sm text-center text-gray-500"
-                    >
-                      Account ID: {{ i.AccountId }}</span
-                    >
-                  </div>
-                  <div class="flex-center">
-                    <span class="text-sm font-bold px-2">{{ i.point }}</span>
-                    <Icon
-                      v-if="i.icon"
-                      :name="i.icon"
-                      class="text-2xl text-black"
-                    />
-                    <NuxtImg :src="i.img" class="h-5" />
-                  </div>
-                </div>
-              </NuxtLink>
-            </div>
+              :id="i.id"
+              :name="i.name"
+              :point="i.point"
+              :AccountId="i.AccountId"
+              :url="i.url"
+              :img="i.img"
+              :icon="i.icon"
+            />
           </div>
         </li>
-      </ul>
+      </ul> 
     </div>
   </div>
   <!-- Mobil Menü Açılır -->
   <div
     v-if="menuOpen"
-    class="md:hidden absolute top-18 left-0 w-full bg-[#070B14] z-50 p-4"
+    class="md:hidden absolute top-18 left-0 w-full bg-white/60 backdrop-blur-md z-50 p-4"
   >
     <ul class="space-y-3 text-white text-center">
       <li>
@@ -92,14 +79,42 @@
         <NuxtLink to="/" class="block">Türkçe</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/" class="block">acililahmacun</NuxtLink>
+        <button class="block">acililahmacun</button>
       </li>
     </ul>
+  </div>
+ 
+  <div
+    v-if="searchOpen"
+    class="md:hidden absolute top-18 left-0 w-full bg-[#070B14] z-50 p-4"
+    ref="elSearchbar"
+  >
+    <HeaderSearchbar />
   </div>
 </template>
 
 <script setup>
+import { onClickOutside } from "@vueuse/core";
+
+const target = ref(null);
+const searchButton = ref(null);
+const elSearchbar = ref(null);
+const show = ref(false);
 const menuOpen = ref(false);
+const searchOpen = ref(false);
+onClickOutside(target, (event) => (show.value = false));
+onClickOutside(searchButton, (event) => (searchOpen.value = false));
+const toggleSearch = () => {
+  searchOpen.value = !searchOpen.value;
+  // Arama açıldığında menüyü kapat
+  if (searchOpen.value) {
+    menuOpen.value = false;
+  }
+};
+const AccountMenu=[{id:1, name:"Favorilerim", url:"",icon:"mdi:heart-outline"},
+{id:2, name:"Türkçe", url:"",icon:"openmoji:flag-turkey",icon2:"mingcute:down-line"},
+{id:3, name:"acililahmacun", url:""},
+]
 const menu = [
   {
     id: 1,
@@ -140,10 +155,4 @@ const menu = [
   },
   { id: 10, name: "LOG OUT", url: "", img: "accountOpenMenu/logout.png" },
 ];
-import { onClickOutside } from "@vueuse/core";
-
-const target = ref(null);
-const show = ref(false);
-
-onClickOutside(target, (event) => (show.value = false));
 </script>

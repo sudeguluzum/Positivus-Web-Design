@@ -53,7 +53,7 @@
         >
           Sosyal Medya Hesaplarımız
         </h3>
-        <div class="flex gap-2 mt-4">
+        <div class="flex gap-2 mt-4 md:gap-1">
           <NuxtLink
             v-for="(social, index) in socialIcons"
             :key="index"
@@ -62,7 +62,7 @@
             external
             class="w-8 aspect-square rounded-full flex items-center justify-center bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E]"
           >
-            <Icon :name="social.icon" class="text-[24px] text-white" />
+            <Icon :name="social.icon" class="text-[24px] text-white " />
           </NuxtLink>
         </div>
       </div>
@@ -73,10 +73,10 @@
   <div class="py-6 text-center text-sm sm:text-base">
     <div class="flex-center flex-col space-y-2 text-gray-700">
       <NuxtImg src="footer-logo.svg" class="h-6 sm:h-8" />
-      <p class="font-semibold text-black">MEGATRON TECHNOLOGY LTD.</p>
+      
 
       <p class="text-black">
-        Yardım Merkezi: support@epinpay.com 10:00 - 17:00
+        Yardım Merkezi: <span class="font-bold"> support@epinpay.com </span>10:00 - 17:00
       </p>
     </div>
   </div>

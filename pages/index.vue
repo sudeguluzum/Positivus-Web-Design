@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#252627] bg-[url(/bg-img/WebBG.png)]">
-    <Header />
+   <Header />
     <ImgBar />
     <Games />
     <TrendGames />
