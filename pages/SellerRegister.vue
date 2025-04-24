@@ -152,23 +152,17 @@
               ></div>
             </div>
 
-
-            <div class="grid grid-cols-2 gap-4">
-              
+            <div class="grid grid-cols-[1fr_2fr] gap-4">
               <div class="relative">
                 <div
                   class="w-full flex items-center justify-between pb-2 cursor-pointer"
-                  @click="showMonths = !showMonths"
+                  @click="showTax = !showTax"
                 >
-                <Icon
-                    name="flag:tr-4x3"
-                    class="text-xl ml-2 text-gray-600"
-                  />
                   <input
                     type="text"
                     placeholder="TR"
                     readonly
-                    :value="selectedMonth"
+                    :value="selectedTax"
                     class="w-full bg-transparent outline-none"
                   />
                   <Icon
@@ -182,35 +176,32 @@
                 ></div>
 
                 <ul
-                  v-if="showMonths"
+                  v-if="showTax"
                   class="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg"
                 >
                   <li
-                    v-for="(month, index) in months"
+                    v-for="(tax, index) in taxs"
                     :key="index"
-                    @click="selectMonth(month)"
-                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer"
+                    @click="selectTax(tax)"
+                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer flex items-center gap-2"
                   >
-                    {{ month }}
+                    <Icon :name="tax.icon" class="text-xl text-gray-600" />
+                    {{ tax.text }}
                   </li>
                 </ul>
               </div>
               <div class="relative">
                 <input
-                type="text"
-                placeholder="Vergi kayıt no (opsiyonel)"
-                class="w-full pb-2 bg-transparent outline-none"
-              />
+                  type="text"
+                  placeholder="Vergi kayıt no (opsiyonel)"
+                  class="w-full pb-2 bg-transparent outline-none"
+                />
                 <div
                   class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
                 ></div>
               </div>
-              
             </div>
 
-
-
-            
             <!-- <div class="relative">
               <input
                 type="text"
@@ -387,19 +378,16 @@ function selectMonth(month) {
   showMonths.value = false;
 }
 
-
-const showTax = ref(false);
-const Taxs = [
-  "twemoji:flag-japan",
-  "twemoji:flag-canada",
-  "03",
-  "04",
-
+const taxs = [
+  { icon: "flag:tr-4x3", text: "TR" },
+  { icon: "twemoji:flag-united-states", text: "USA" },
+  { icon: "twemoji:flag-canada", text: "CDN" },
 ];
-const selectedTax = ref("");
+const selectedTax = ref(taxs[0].text);
+const showTax = ref(false);
 
-function selectTax(tax) {
-  selectedTax.value = month;
+const selectTax = (tax) => {
+  selectedTax.value = tax.text;
   showTax.value = false;
-}
+};
 </script>
