@@ -33,7 +33,7 @@
           <div
             class="bg-gradient-to-r from-[#5929B9] to-[#8c33ef] w-55 text-white font-bold text-xl px-10 py-4 rounded-r-4xl tracking-widest"
           >
-            <h2>Satıcı Ol</h2>
+            <h2>Satıcı Ol!</h2>
           </div>
           <div
             class="border-y border-gray-300 mt-3 px-16 h-15 grid grid-cols-2 place-items-center"
@@ -152,22 +152,23 @@
               ></div>
             </div>
 
-            <div class="grid grid-cols-[1fr_2fr] gap-4">
+            <div class="grid grid-cols-[1fr_3fr] gap-4">
               <div class="relative">
                 <div
                   class="w-full flex items-center justify-between pb-2 cursor-pointer"
                   @click="showTax = !showTax"
                 >
+                  <Icon :name="selectedTax.icon" class="text-xl px-2" />
                   <input
                     type="text"
                     placeholder="TR"
                     readonly
-                    :value="selectedTax"
-                    class="w-full bg-transparent outline-none"
+                    :value="selectedTax.text"
+                    class="w-full bg-transparent outline-none px-2"
                   />
                   <Icon
                     name="mingcute:down-line"
-                    class="text-xl ml-2 text-gray-600"
+                    class="text-xl text-gray-600"
                   />
                 </div>
 
@@ -185,7 +186,7 @@
                     @click="selectTax(tax)"
                     class="px-4 py-2 hover:bg-purple-100 cursor-pointer flex items-center gap-2"
                   >
-                    <Icon :name="tax.icon" class="text-xl text-gray-600" />
+                    <Icon :name="tax.icon" class="text-xl" />
                     {{ tax.text }}
                   </li>
                 </ul>
@@ -202,46 +203,125 @@
               </div>
             </div>
 
-            <!-- <div class="relative">
+            <div class="relative border-t border-gray-300 mt-8">
+              <h2 class="my-8 font-semibold">Fatura Adresi</h2>
               <input
                 type="text"
-                placeholder="Vergi kayıt no (opsiyonel)"
+                placeholder="Adres 1"
                 class="w-full pb-2 bg-transparent outline-none"
               />
               <div
                 class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
               ></div>
-            </div> -->
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Adres 2"
+                class="w-full pb-2 outline-none bg-transparent text-white lg:text-[#06475d]"
+              />
+              <div
+                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+              ></div>
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Şehir"
+                class="w-full pb-2 outline-none bg-transparent text-white lg:text-[#06475d]"
+              />
+              <div
+                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+              ></div>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr] gap-4">
+              <div class="relative">
+                <div
+                  class="w-full flex items-center justify-between pb-2 cursor-pointer"
+                  @click="showState = !showState"
+                >
+                  <input
+                    type="text"
+                    placeholder="Lütfen Seçiniz"
+                    readonly
+                    :value="selectedState.text"
+                    class="w-full bg-transparent outline-none px-2"
+                  />
+                  <Icon
+                    name="mingcute:down-line"
+                    class="text-xl text-gray-600"
+                  />
+                </div>
+
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+
+                <ul
+                  v-if="showState"
+                  class="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg"
+                >
+                  <li
+                    v-for="(i, index) in states"
+                    :key="index"
+                    @click="selectState(i)"
+                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer flex items-center gap-2"
+                  >
+                    <Icon :name="i.icon" class="text-xl" />
+                    {{ i.text }}
+                  </li>
+                </ul>
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Posta Kodu"
+                  class="w-full pb-2 bg-transparent outline-none"
+                />
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+              </div>
+            </div>
 
             <div class="flex-center flex-col gap-3">
-              <NuxtLink>
-                <button
-                  class="bg-gradient-to-r from-[#5929B9] to-[#8c33ef] rounded-full text-white text-xl py-3 w-35"
-                >
-                  Devam Et
-                </button>
-              </NuxtLink>
-
-              <!-- <div class="grid grid-cols-2 gap-2 text-sm">
-                <div
-                  v-for="(i, index) in accounts"
-                  :key="index"
-                  class="border border-gray-300 rounded-xl flex items-center py-2 px-3 gap-1"
-                >
-                  <Icon :name="i.icon" class="text-lg" />
-                  <p class="text-gray-700">{{ i.text }}</p>
-                </div>
-              </div> -->
+              <div class="grid grid-cols-2 gap-4">
+                <NuxtLink>
+                  <button
+                    class="bg-gradient-to-r from-[#B29CD8] to-[#C9AEEB] rounded-full text-white text-xl py-3 w-35"
+                  >
+                    Daha Sonra
+                  </button>
+                </NuxtLink>
+                <NuxtLink>
+                  <button
+                    class="bg-gradient-to-r from-[#5929B9] to-[#8c33ef] rounded-full text-white text-xl py-3 w-35"
+                  >
+                    Devam Et
+                  </button>
+                </NuxtLink>
+              </div>
               <div class="relative mt-4">
                 <NuxtLink to="/SellerLogin">
                   <h2 class="font-medium mb-1 tracking-wider">
                     Hesabın var mı? Giriş yap
                   </h2></NuxtLink
                 >
+
                 <div
                   class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
                 ></div>
               </div>
+              <p class="text-[0.6rem] text-gray-400">
+                Ticari
+                <NuxtLink to="/">
+                  <span class="underline">satıcı hesabı </span> </NuxtLink
+                >oluşturun veya işletme hesabı hakkında
+                <NuxtLink to="/">
+                  <span class="underline"> daha fazla bilgi </span>
+                </NuxtLink>
+                edinin.
+              </p>
             </div>
           </div>
         </div>
@@ -250,7 +330,7 @@
       <!-- Küçük ekranda görünüm -->
 
       <div
-        class="flex lg:hidden justify-end absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl/80 bg-black overflow-hidden w-[90%] max-w-md h-165 rounded-4xl"
+        class="flex lg:hidden justify-end absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl/80 bg-black overflow-hidden w-[90%] max-w-md h-230 rounded-4xl"
       >
         <NuxtImg
           src="Login/women.png"
@@ -265,27 +345,106 @@
             <h2>Satıcı Ol!</h2>
           </div>
           <div
-            class="flex flex-col gap-14 mt-18 px-6 sm:px-10 text-white lg:text-[#06475d]"
+            class="border-y border-gray-300 mt-3 px-16 h-15 grid grid-cols-2 place-items-center"
           >
-            <h2 class="font-extrabold text-xl tracking-wider">
-              Hesabına Giriş Yap
-            </h2>
-
-            <div class="relative">
-              <input
-                type="text"
-                placeholder="E-posta veya cep telefonu numarası"
-                class="w-full pb-2 outline-none bg-transparent text-white lg:text-[#06475d]"
-              />
+            <div
+              v-for="(i, index) in accounts"
+              :key="index"
+              class="flex items-center gap-2"
+            >
               <div
-                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
-              ></div>
+                class="w-5 aspect-square rounded-full flex items-center justify-center bg-gradient-to-r from-[#1b9a88] to-[#1C3E7E]"
+              >
+                <Icon :name="i.icon" class="text-xl text-white" />
+              </div>
+              <p class="text-white">{{ i.text }}</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-7 mt-10 px-10 text-white">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Gün"
+                  class="w-full pb-2 bg-transparent outline-none"
+                  maxlength="2"
+                  @input="
+                    (e) =>
+                      (e.target.value = e.target.value.replace(/[^0-9]/g, ''))
+                  "
+                />
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+              </div>
+              <div class="relative">
+                <div
+                  class="w-full flex items-center justify-between pb-2 cursor-pointer"
+                  @click="showMonths = !showMonths"
+                >
+                  <input
+                    type="text"
+                    placeholder="Ay"
+                    readonly
+                    :value="selectedMonth"
+                    class="w-full bg-transparent outline-none"
+                  />
+                  <Icon
+                    name="mingcute:down-line"
+                    class="text-xl ml-2 text-gray-600"
+                  />
+                </div>
+
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+
+                <ul
+                  v-if="showMonths"
+                  class="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg text-black"
+                >
+                  <li
+                    v-for="(month, index) in months"
+                    :key="index"
+                    @click="selectMonth(month)"
+                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer"
+                  >
+                    {{ month }}
+                  </li>
+                </ul>
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Yıl"
+                  class="w-full pb-2 bg-transparent outline-none"
+                  maxlength="4"
+                  @input="
+                    (e) =>
+                      (e.target.value = e.target.value.replace(/[^0-9]/g, ''))
+                  "
+                />
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+              </div>
+              <div class="col-span-3">
+                <p class="text-[0.6rem] text-gray-400">
+                  Lütfen kimlik belgenizle uyumlu doğum tarihinizi giriniz.
+                  Epinpay üzerinden satış yapabilmeniz için en az 18 yaşında
+                  olmanız gerekmektedir.
+                </p>
+              </div>
             </div>
             <div class="relative">
               <input
                 :type="showPassword ? 'text' : 'password'"
-                placeholder="Şifre"
+                placeholder="Kimlik No (opsiyonel)"
                 class="w-full pb-2 bg-transparent outline-none pr-10"
+                @input="
+                  (e) =>
+                    (e.target.value = e.target.value.replace(/[^0-9]/g, ''))
+                "
               />
               <button
                 type="button"
@@ -300,44 +459,178 @@
               <div
                 class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
               ></div>
-              <div class="flex absolute my-3">
-                <input
-                  type="checkbox"
-                  v-model="rememberMe"
-                  id="remember"
-                  class="h-4 w-4 accent-[#1C3E7E]"
-                />
-                <label for="remember" class="ml-2 text-sm">Beni Hatırla</label>
-              </div>
             </div>
 
-            <div class="flex-center flex-col gap-3">
-              <NuxtLink>
-                <button
-                  class="bg-gradient-to-r from-[#5929B9] to-[#8c33ef] rounded-full text-white text-xl py-3 w-35"
-                >
-                  Giriş Yap
-                </button>
-              </NuxtLink>
-              <NuxtLink to="/">
-                <h2 class="font-medium">Hesap Oluştur</h2>
-              </NuxtLink>
-              <div class="grid grid-cols-2 gap-2 text-[0.6rem] sm:text-sm">
+            <div class="grid grid-cols-[1fr_3fr] gap-4">
+              <div class="relative">
                 <div
-                  v-for="(i, index) in accounts"
-                  :key="index"
-                  class="border border-gray-300 rounded-xl flex items-center py-2 px-2 gap-1 bg-gray-100 lg:bg-white"
+                  class="w-full flex items-center justify-between pb-2 cursor-pointer"
+                  @click="showTax = !showTax"
                 >
-                  <Icon :name="i.icon" class="text-lg text-gray-700" />
-                  <p class="text-gray-700">{{ i.text }}</p>
+                  <Icon :name="selectedTax.icon" class="text-xl px-2" />
+                  <input
+                    type="text"
+                    placeholder="TR"
+                    readonly
+                    :value="selectedTax.text"
+                    class="w-full bg-transparent outline-none px-2"
+                  />
+                  <Icon
+                    name="mingcute:down-line"
+                    class="text-xl text-gray-600"
+                  />
                 </div>
+
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+
+                <ul
+                  v-if="showTax"
+                  class="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg"
+                >
+                  <li
+                    v-for="(tax, index) in taxs"
+                    :key="index"
+                    @click="selectTax(tax)"
+                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer flex items-center gap-2 text-black"
+                  >
+                    <Icon :name="tax.icon" class="text-xl" />
+                    {{ tax.text }}
+                  </li>
+                </ul>
               </div>
-              <div class="relative mt-4">
-                <h2 class="font-medium mb-1 tracking-wider">Şifremi Unuttum</h2>
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Vergi kayıt no (opsiyonel)"
+                  class="w-full pb-2 bg-transparent outline-none"
+                />
                 <div
                   class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
                 ></div>
               </div>
+            </div>
+
+            <div class="relative border-t border-gray-300 mt-8">
+              <h2 class="my-8 font-semibold">Fatura Adresi</h2>
+              <input
+                type="text"
+                placeholder="Adres 1"
+                class="w-full pb-2 bg-transparent outline-none"
+              />
+              <div
+                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+              ></div>
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Adres 2"
+                class="w-full pb-2 outline-none bg-transparent text-white lg:text-[#06475d]"
+              />
+              <div
+                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+              ></div>
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Şehir"
+                class="w-full pb-2 outline-none bg-transparent text-white lg:text-[#06475d]"
+              />
+              <div
+                class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+              ></div>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr] gap-4">
+              <div class="relative">
+                <div
+                  class="w-full flex items-center justify-between pb-2 cursor-pointer"
+                  @click="showState = !showState"
+                >
+                  <input
+                    type="text"
+                    placeholder="Lütfen Seçiniz"
+                    readonly
+                    :value="selectedState.text"
+                    class="w-full bg-transparent outline-none px-2"
+                  />
+                  <Icon
+                    name="mingcute:down-line"
+                    class="text-xl text-gray-600"
+                  />
+                </div>
+
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+
+                <ul
+                  v-if="showState"
+                  class="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg"
+                >
+                  <li
+                    v-for="(i, index) in states"
+                    :key="index"
+                    @click="selectState(i)"
+                    class="px-4 py-2 hover:bg-purple-100 cursor-pointer flex items-center gap-2 text-black"
+                  >
+                    <Icon :name="i.icon" class="text-xl" />
+                    {{ i.text }}
+                  </li>
+                </ul>
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Posta Kodu"
+                  class="w-full pb-2 bg-transparent outline-none"
+                />
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+              </div>
+            </div>
+
+            <div class="flex-center flex-col gap-3">
+              <div class="grid grid-cols-2 gap-4">
+                <NuxtLink>
+                  <button
+                    class="bg-gradient-to-r from-[#B29CD8] to-[#C9AEEB] rounded-full text-white text-xl py-3 w-35"
+                  >
+                    Daha Sonra
+                  </button>
+                </NuxtLink>
+                <NuxtLink>
+                  <button
+                    class="bg-gradient-to-r from-[#5929B9] to-[#8c33ef] rounded-full text-white text-xl py-3 w-35"
+                  >
+                    Devam Et
+                  </button>
+                </NuxtLink>
+              </div>
+              <div class="relative mt-4">
+                <NuxtLink to="/SellerLogin">
+                  <h2 class="font-medium mb-1 tracking-wider">
+                    Hesabın var mı? Giriş yap
+                  </h2></NuxtLink
+                >
+
+                <div
+                  class="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#8c33ef] to-[#5929B9]"
+                ></div>
+              </div>
+              <p class="text-[0.6rem] text-gray-400">
+                Ticari
+                <NuxtLink to="/">
+                  <span class="underline">satıcı hesabı </span> </NuxtLink
+                >oluşturun veya işletme hesabı hakkında
+                <NuxtLink to="/">
+                  <span class="underline"> daha fazla bilgi </span>
+                </NuxtLink>
+                edinin.
+              </p>
             </div>
           </div>
         </div>
@@ -383,11 +676,24 @@ const taxs = [
   { icon: "twemoji:flag-united-states", text: "USA" },
   { icon: "twemoji:flag-canada", text: "CDN" },
 ];
-const selectedTax = ref(taxs[0].text);
+const selectedTax = ref(taxs[0]);
 const showTax = ref(false);
 
 const selectTax = (tax) => {
-  selectedTax.value = tax.text;
+  selectedTax.value = tax;
   showTax.value = false;
+};
+
+const states = [
+  { icon: "flag:tr-4x3", text: "Türkiye" },
+  { icon: "twemoji:flag-united-states", text: "Amerika" },
+  { icon: "twemoji:flag-canada", text: "Canada" },
+];
+const selectedState = ref(states[0]);
+const showState = ref(false);
+
+const selectState = (i) => {
+  selectedState.value = i;
+  showState.value = false;
 };
 </script>
