@@ -20,7 +20,7 @@
       <NavbarMenu />
       <div class="w-full p-8 gap-8 relative flex md:flex-row flex-col">
         <div
-          class="flex-1 h-180 text-center rounded-2xl overflow-hidden justify-between bg-amber-200 hidden md:block"
+          class="flex-1 h-180 text-center rounded-2xl overflow-hidden justify-between hidden md:block"
         >
           <div class="py-10 font-semibold">
             <h2 class="text-lg mb-4">LARGEST IMAGE SOURCE</h2>
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div
-          class="flex-center flex-1 h-180 relative rounded-2xl overflow-hidden bg-amber-600"
+          class="flex-center flex-1 h-180 relative rounded-2xl overflow-hidden md:min-w-[525px]"
         >
           <Swiper
             :loop="true"

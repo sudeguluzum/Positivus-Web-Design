@@ -51,20 +51,23 @@ watch([counter, tekCift],(newValue, oldValue)=>{  //tek yapı incelenecekse bu �
 
 
 //watch ve watchEffect kullanımı 
-const searchText=ref();
+const searchText=ref('');
 const isTyping=ref(false);
 
-watch(searchText, ()=>{   //watch kullandığımızda yazmaya başlayınca yazıyor.. çıkıyor ama yazmayı buraktığımızda hala yazıyor.. yazısı gözüküyor bunun için setTimeout kullanıyoruz
-  if(searchText.value.length > 0){
-    isTyping.value = true;
-  }
 
-  setTimeout(()=>{  //1,5 saniye sonra yazı kapanıyor ama yazmaya devam ettiğimizde yazıyor.. yazısı göz kırpıyor bu iyi bir görüntü değil bu yüzden watchEffect kullanıyoruz
-    isTyping.value=false;
-  },1500);
+//******************************************************************************************************************************
+// watch(searchText, ()=>{   //watch kullandığımızda yazmaya başlayınca yazıyor.. çıkıyor ama yazmayı buraktığımızda hala yazıyor.. yazısı gözüküyor bunun için setTimeout kullanıyoruz
+//   if(searchText.value.length > 0){
+//     isTyping.value = true;
+//   }
+
+//   setTimeout(()=>{  //1,5 saniye sonra yazı kapanıyor ama yazmaya devam ettiğimizde yazıyor.. yazısı göz kırpıyor bu iyi bir görüntü oluyor bu yüzden watchEffect kullanıyoruz
+//     isTyping.value=false;
+//   },1500);
   
-});
-
+// });
+//******************************************************************************************************************************
+ 
 ///watchEffect
 watchEffect((onInvalidate)=>{
    if(searchText.value.length > 0){
@@ -72,7 +75,7 @@ watchEffect((onInvalidate)=>{
 
     const typing=setTimeout(()=>{
       isTyping.value=false;
-    },1500)
+    },1500);
   
   onInvalidate(()=>clearTimeout(typing));
   }
