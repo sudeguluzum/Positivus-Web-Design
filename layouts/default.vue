@@ -1,5 +1,5 @@
 <template>
-  <!-- <Header /> -->
+  <Header />
 
   <div class="min-h-screen">
     <slot />

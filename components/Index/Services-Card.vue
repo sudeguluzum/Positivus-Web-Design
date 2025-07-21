@@ -7,13 +7,12 @@
   >
     <div class="flex flex-col justify-between">
       <p
+        v-html="title"
         :class="[
           'rounded-lg font-semibold text-2xl md:text-4xl p-1 w-fit',
           highlightClass,
         ]"
-      >
-        {{ title }}
-      </p>
+      ></p>
       <span class="flex items-center gap-2 font-semibold group">
         <NuxtImg
           :src="okImg"
@@ -21,7 +20,7 @@
         />
         <p
           :class="[
-            'transition-colors group-hover:bg-[#B9FF66] p-1 rounded-r-2xl rounded',
+            'transition-colors group-hover:bg-[#B9FF66] p-1 rounded-r-2xl rounded hidden md:block',
             moreClass,
           ]"
         >

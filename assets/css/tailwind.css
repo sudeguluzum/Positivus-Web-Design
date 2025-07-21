@@ -8,6 +8,9 @@ body {
     @apply flex items-center justify-center;
 }
 
+.text-green {
+    @apply text-[#B9FF66] ;
+}
 .c-green {
     @apply bg-[#B9FF66] ;
 }
