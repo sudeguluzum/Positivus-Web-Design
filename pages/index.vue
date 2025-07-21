@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="w-1/2 hidden md:flex items-center justify-end">
-          <NuxtImg src="anasayfa/right2.png" class="object-scale-down" />
+          <NuxtImg src="anasayfa/right2.png" class="object-contain scale-90" />
         </div>
       </div>
       <div class="flex gap-10">
@@ -102,7 +102,7 @@
           Success through Our Case Studies
         </p>
       </div>
-      <IndexGreyCard />
+      <IndexGreyCard v-for="(i, j) in cases" :key="j" :text="text" :url="url" />
     </div>
   </div>
 </template>
@@ -125,14 +125,14 @@ const cards = [
   {
     title: "Search engine optimization",
     img: "anasayfa/index-card/p1.png",
-    okImg: "anasayfa/-card/green-ok.png",
+    okImg: "anasayfa/index-card/green-ok.png",
     bgClass: "c-white",
     highlightClass: "c-green text-black",
   },
   {
     title: "Pay-per-click advertising",
     img: "anasayfa/index-card/p2.png",
-    okImg: "anasayfa/-card/green-ok.png",
+    okImg: "anasayfa/index-card/green-ok.png",
     bgClass: "c-green",
     highlightClass: "bg-white text-black",
     moreClass: "group-hover:bg-white",
@@ -167,6 +167,21 @@ const cards = [
     bgClass: "c-black",
     highlightClass: "c-green text-black",
     moreClass: "text-white group-hover:text-black",
+  },
+];
+
+const cases = [
+  {
+    text: "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
+    url: "#",
+  },
+  {
+    text: "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
+    url: "#",
+  },
+  {
+    text: "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
+    url: "#",
   },
 ];
 </script>
