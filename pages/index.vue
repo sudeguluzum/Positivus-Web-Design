@@ -1,148 +1,108 @@
 <template>
-  <!-- <div class="bg-[#252627] bg-[url(/bg-img/WebBG.png)]">
-   <Header />
-    <ImgBar />
-    <Games />
-    <TrendGames />
-    <NewProducts /> 
-    <TrendGift />
-    <TrendPayment/>
-    <Text />  
-  </div>
-  <div class="bg-[url(/bg-img/WebBG.png)]">
-    <Footer />
-  </div> -->
-
-  <div class="bg-[#e9e9e9] min-h-screen flex-center">
-    <div
-      class="bg-[#f7f7f7] border-3 border-white rounded-3xl w-6xl overflow-hidden my-8"
-    >
-      <NavbarMenu />
-      <div class="w-full p-8 gap-8 relative flex md:flex-row flex-col">
-        <div
-          class="flex-1 h-180 text-center rounded-2xl overflow-hidden justify-between hidden md:block"
-        >
-          <div class="py-10 font-semibold">
-            <h2 class="text-lg mb-4">LARGEST IMAGE SOURCE</h2>
-            <h2 class="text-5xl leading-17">
-              POWERED BY
-              <div class="relative flex-center">
-                <h2 class="z-50 w-full">CREATORS AROUND</h2>
-                <div
-                  class="absolute rounded-full bottom-1 w-84 h-5 bg-[#D1FF99]"
-                ></div>
-              </div>
-            </h2>
-
-            <div class="flex-center gap-3 mt-3">
-              <div class="text-5xl">THE WORLD.</div>
-              <div class="h-10 w-10 rounded-full relative bg-[#384A20]">
-                <div
-                  class="h-10 w-10 rounded-full absolute left-5 bg-[#4B7416]"
-                ></div>
-                <div
-                  class="h-10 w-10 rounded-full absolute left-10 bg-[#7CB930]"
-                ></div>
-                <div
-                  class="h-10 w-10 rounded-full absolute left-15 bg-[#B5FF56]"
-                ></div>
-              </div>
-            </div>
-
-            <div class="my-13 flex flex-col items-center">
-              <p class="text-gray-400 font-normal">Don't have account?</p>
-              <div class="flex-center gap-2 border-b w-40 mt-4">
-                <p>Create account</p>
-                <Icon name="line-md:arrow-right" />
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative rounded-2xl overflow-hidden h-60 w-full flex-center"
-          >
-            <NuxtImg
-              src="proje/car4.png"
-              class="w-full h-full object-cover grayscale"
-            />
-            <div class="absolute flex justify-center gap-6 px-20">
-              <p class="text-white text-nowrap">About us</p>
-              <div>
-                <p class="text-white text-left">
-                  Over <span class="font-semibold">3 million </span> free
-                  <span class="font-semibold">hight-resolution</span> images
-                  brought to you by the world's most generous comminity of
-                  <span class="font-semibold">photographers.</span>
-                </p>
-              </div>
-            </div>
+  <div class="min-h-screen">
+    <div class="my-10 w-full max-w-screen-xl mx-auto md:px-4">
+      <Header />
+      <div class="flex my-10 max-h-120">
+        <div class="w-1/2 flex flex-col justify-between">
+          <h1 class="text-5xl font-semibold leading-[1.5]">
+            Navigating the <br />
+            digital landscape <br />
+            for success
+          </h1>
+          <p>
+            Our digital marketing agency helps businesses <br />
+            grow and succeed online through a range of <br />
+            services including SEO, PPC, social media marketing, <br />
+            and content creation.
+          </p>
+          <div>
+            <button
+              class="px-6 py-3 c-black rounded-xl text-white hover:scale-102"
+            >
+              Book a consultation
+            </button>
           </div>
         </div>
-        <div
-          class="flex-center flex-1 h-180 relative rounded-2xl overflow-hidden md:min-w-[525px]"
+        <div class="w-1/2"><NuxtImg src="anasayfa/right1.png" /></div>
+      </div>
+      <div class="my-25">
+        <Swiper
+          :slides-per-view="6"
+          space-between="20"
+          :loop="true"
+          :modules="modules"
+          :autoplay="{ delay: 5000 }"
+          :breakpoints="{
+            '1': {
+              slidesPerView: 1,
+            },
+            '400': {
+              slidesPerView: 2,
+            },
+            '640': {
+              slidesPerView: 3,
+            },
+            '800': {
+              slidesPerView: 4,
+            },
+            '1200': {
+              slidesPerView: 5,
+            },
+          }"
         >
-          <Swiper
-            :loop="true"
-            :modules="modules"
-            :autoplay="{ delay: 5000 }"
-            :navigation="{
-              nextEl: '.custom-next',
-              prevEl: '.custom-prev',
-            }"
-            class="relative z-0"
-          >
-            <swiper-slide v-for="(i, j) in cars" :key="j">
-              <NuxtImg :src="i.img" class="w-full h-full object-fill grayscale"
-            /></swiper-slide>
-          </Swiper>
-
-          <div class="absolute w-100 flex-center flex-col rounded-2xl z-10">
-            <div class="bg-white/50 w-full rounded-t-2xl rounded-b text-center">
-              <p class="font-semibold py-3">Login to your account</p>
-            </div>
-
-            <div
-              class="bg-white/50 rounded-t rounded-b-2xl w-full flex flex-col gap-6 py-5 text-black"
+          <swiper-slide v-for="(i, j) in logo" :key="j">
+            <NuxtImg :src="i.img" class="object-contain grayscale h-12"
+          /></swiper-slide>
+        </Swiper>
+      </div>
+      <div class="flex gap-10">
+        <h1 class="c-green p-1 font-semibold text-3xl">Services</h1>
+        <p class="text-black">
+          At our digital marketing agency, we offer a range of services to
+          <br />
+          help businesses grow and succeed online. These services include:
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-15">
+        <IndexServices-Card
+          v-for="(i, j) in cards"
+          :key="j"
+          :title="i.title"
+          :img="i.img"
+          :ok-img="i.okImg"
+          :bg-class="i.bgClass"
+          :highlight-class="i.highlightClass"
+          :more-class="i.moreClass"
+        />
+      </div>
+      <div class="flex my-30 max-h-80">
+        <div class="w-1/2 flex flex-col justify-center gap-10 mx-20">
+          <h1 class="text-2xl font-semibold">Let’s make things happen</h1>
+          <p>
+            Contact us today to learn more about how our digital <br />
+            marketing services can help your business grow and <br />
+            succeed online.
+          </p>
+          <div>
+            <button
+              class="px-6 py-3 c-black rounded-xl text-white hover:scale-102"
             >
-              <div class="flex flex-col px-5 rounded-t">
-                <label for="username" class="text-xs">Username</label>
-                <input
-                  type="text"
-                  class="border-b border-gray-400 outline-none text-white"
-                />
-              </div>
-
-              <div class="flex flex-col mx-5">
-                <label for="password" class="text-xs">Password</label>
-                <input
-                  type="password"
-                  class="border-b border-gray-400 outline-none"
-                />
-              </div>
-
-              <div class="flex justify-between px-5">
-                <div class="flex items-center flex-1">
-                  <input type="checkbox" class="h-4 w-4 accent-[#D1FF99]" />
-                  <label for="remember" class="ml-2 text-sm">Remember me</label>
-                </div>
-                <div class="flex flex-1 justify-end">
-                  <p class="text-xs">Forgot your password?</p>
-                </div>
-              </div>
-              <div class="px-5">
-                <button class="bg-black text-white rounded-2xl w-full p-2">
-                  login
-                </button>
-              </div>
-            </div>
+              Get your free proposal
+            </button>
           </div>
-
-          <div class="absolute bottom-8 right-8 flex z-10 gap-4 ">
-            <button class="custom-prev flex-center border rounded border-white/30 p-1"> <Icon name="mdi:chevron-left" size="24" class="text-white" /></button>
-            <button class="custom-next flex-center border rounded border-white/30 p-1"><Icon name="mdi:chevron-right" size="24" class="text-white"/></button>
-           
-          </div>
+        </div>
+        <div class="w-1/2 hidden md:flex items-center justify-end">
+          <NuxtImg src="anasayfa/right2.png" class="object-scale-down" />
         </div>
       </div>
+      <div class="flex gap-10">
+        <h1 class="c-green p-1 font-semibold text-3xl">Case Studies</h1>
+        <p class="text-black">
+          Explore Real-Life Examples of Our Proven Digital Marketing <br />
+          Success through Our Case Studies
+        </p>
+      </div>
+      <IndexGreyCard />
     </div>
   </div>
 </template>
@@ -152,11 +112,61 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 
 const modules = [Navigation, Autoplay];
-const cars = [
-  { img: "proje/s1.png" },
-  { img: "proje/s2.png" },
-  { img: "proje/s3.png" },
-  { img: "proje/s4.png" },
-  { img: "proje/s5.png" },
+const logo = [
+  { img: "anasayfa/index-slider/p1.png" },
+  { img: "anasayfa/index-slider/p2.png" },
+  { img: "anasayfa/index-slider/p3.png" },
+  { img: "anasayfa/index-slider/p4.png" },
+  { img: "anasayfa/index-slider/p5.png" },
+  { img: "anasayfa/index-slider/p6.png" },
+];
+
+const cards = [
+  {
+    title: "Search engine optimization",
+    img: "anasayfa/index-card/p1.png",
+    okImg: "anasayfa/-card/green-ok.png",
+    bgClass: "c-white",
+    highlightClass: "c-green text-black",
+  },
+  {
+    title: "Pay-per-click advertising",
+    img: "anasayfa/index-card/p2.png",
+    okImg: "anasayfa/-card/green-ok.png",
+    bgClass: "c-green",
+    highlightClass: "bg-white text-black",
+    moreClass: "group-hover:bg-white",
+  },
+  {
+    title: "Social Media Marketing",
+    img: "anasayfa/index-card/p3.png",
+    okImg: "anasayfa/index-card/white-ok.png",
+    bgClass: "c-black",
+    highlightClass: "bg-white text-black",
+    moreClass: "text-white group-hover:text-black",
+  },
+  {
+    title: "Email Marketing",
+    img: "anasayfa/index-card/p4.png",
+    okImg: "anasayfa/index-card/green-ok.png",
+    bgClass: "c-white",
+    highlightClass: "c-green text-black",
+  },
+  {
+    title: "Content Creation",
+    img: "anasayfa/index-card/p5.png",
+    okImg: "anasayfa/index-card/green-ok.png",
+    bgClass: "c-green",
+    highlightClass: "bg-white text-black",
+    moreClass: "group-hover:bg-white",
+  },
+  {
+    title: "Analytics and Tracking",
+    img: "anasayfa/index-card/p6.png",
+    okImg: "anasayfa/index-card/white-ok.png",
+    bgClass: "c-black",
+    highlightClass: "c-green text-black",
+    moreClass: "text-white group-hover:text-black",
+  },
 ];
 </script>
