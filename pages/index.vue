@@ -3,7 +3,9 @@
     <div class="my-10 w-full max-w-screen-xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 my-10 max-h-120">
         <div class="flex flex-col justify-between">
-          <h1 class="text-3xl md:text-6xl font-semibold leading-[1.5]">
+          <h1
+            class="text-3xl md:text-4xl lg:text-6xl font-semibold leading-[1.5]"
+          >
             Navigating the <br />
             digital landscape <br />
             for success
@@ -29,28 +31,28 @@
           <NuxtImg src="anasayfa/right1.png" />
         </div>
       </div>
-      <div class="my-25">
+      <div class="my-30">
         <Swiper
           :slides-per-view="6"
-          space-between="20"
+          :space-between="30"
           :loop="true"
           :modules="modules"
-          :autoplay="{ delay: 5000 }"
+          :autoplay="{ delay: 3000 }"
           :breakpoints="{
             '1': {
-              slidesPerView: 1,
-            },
-            '400': {
               slidesPerView: 2,
             },
-            '640': {
+            '400': {
               slidesPerView: 3,
             },
-            '800': {
+            '640': {
               slidesPerView: 4,
             },
-            '1200': {
+            '800': {
               slidesPerView: 5,
+            },
+            '1200': {
+              slidesPerView: 6,
             },
           }"
         >
@@ -105,7 +107,7 @@
         class="my-5"
       />
       <Line v-for="(i, j) in line4" :key="j" :title="i.title" :text="i.text" />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <TeamCard
           v-for="(i, j) in team"
           :key="j"
@@ -124,16 +126,68 @@
         </NuxtLink>
       </div>
       <Line v-for="(i, j) in line5" :key="j" :title="i.title" :text="i.text" />
+      <div class="py-15 rounded-4xl px-3 c-black relative">
+        <Swiper
+          :slides-per-view="2"
+          :centered-slides="true"
+          :loop="true"
+          :space-between="30"
+          :pagination="{
+            clickable: true,
+            el: '.custom-pagination',
+          }"
+          :modules="modules"
+          :navigation="{
+            nextEl: '.swiper-next',
+            prevEl: '.swiper-prev',
+          }"
+          :breakpoints="{
+            '1': {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            '1024': {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+          }"
+          class="mb-20"
+        >
+          <swiper-slide v-for="(i, j) in logo" :key="j">
+            <IndexTestimonialCard />
+          </swiper-slide>
+        </Swiper>
+        <button
+          class="swiper-prev absolute left-10 md:left-100 bottom-12 z-10 w-8 h-8 rounded-full flex-center hover:bg-white/20 hover:scale-115"
+        >
+          <Icon name="line-md:arrow-left" size="24" class="text-white" />
+        </button>
+
+        <button
+          class="swiper-next absolute right-10 md:right-100 bottom-12 z-10 w-8 h-8 rounded-full flex-center hover:bg-white/20 hover:scale-115"
+        >
+          <Icon name="line-md:arrow-right" size="24" class="text-white" />
+        </button>
+
+        <div
+          class="custom-pagination bottom-0 mt-8 flex justify-center gap-1"
+        ></div>
+      </div>
+
       <Line v-for="(i, j) in line6" :key="j" :title="i.title" :text="i.text" />
+
+      <Contact class="px-18 mb-40" />
     </div>
   </div>
 </template>
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-const modules = [Navigation, Autoplay];
+const modules = [Navigation, Autoplay, Pagination];
 const logo = [
   { img: "anasayfa/index-slider/p1.png" },
   { img: "anasayfa/index-slider/p2.png" },

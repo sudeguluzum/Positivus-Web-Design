@@ -2,7 +2,7 @@
   <div
     class="flex items-center justify-between w-full max-w-screen-xl px-4 md:mx-auto my-10"
   >
-    <NuxtImg src="logo.png" class="h-6 md:h-9" />
+    <NuxtImg src="blackLogo.png" class="h-6 md:h-9" />
     <div class="hidden lg:flex gap-8">
       <button
         v-for="(i, j) in menu"
